@@ -9,6 +9,7 @@
     
 """
 #------------------Importing Packages-------------------------
+
 def enter():
     print("Enter the length of your password.")
     passLen = int(input())
@@ -17,3 +18,4 @@ def enter():
     print("Enter the amount of special characters in your password.")
     passSpCh = int(input())
     return(passLen, passNums, passSpCh)
+
