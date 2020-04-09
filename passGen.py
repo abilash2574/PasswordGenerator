@@ -9,10 +9,13 @@
     
 """
 #------------------Importing Packages-------------------------
-import random, pyperclip, string
 
-def pre_PasswordGenerator():
-    letters = string.ascii_letters
-    digits = string.digits
-    special = "@#$%!^&*"
-    return letters, digits, special
+def enter():
+    print("Enter the length of your password.")
+    passLen = int(input())
+    print("Enter the amount of numbers in your password.")
+    passNums = int(input())
+    print("Enter the amount of special characters in your password.")
+    passSpCh = int(input())
+    return(passLen, passNums, passSpCh)
+
