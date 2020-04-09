@@ -16,7 +16,4 @@ def enter():
     passNums = int(input())
     print("Enter the amount of special characters in your password.")
     passSpCh = int(input())
-    
     return(passLen, passNums, passSpCh)
-    
-  
