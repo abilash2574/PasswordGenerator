@@ -9,6 +9,10 @@
     
 """
 #------------------Importing Packages-------------------------
-import random, pyperclip
+import random, pyperclip, string
 
-
+def pre_PasswordGenerator():
+    letters = string.ascii_letters
+    digits = string.digits
+    special = "@#$%!^&*"
+    return letters, digits, special
