@@ -11,7 +11,7 @@
 #------------------Importing Packages-------------------------
 import random, pyperclip, string
 
-def pre_PasswordGenerator():
+def var_PasswordGenerator():
     letters = string.ascii_letters
     digits = string.digits
     special = "@#$%!^&*"
