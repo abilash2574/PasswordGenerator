@@ -9,8 +9,6 @@
     
 """
 #------------------Importing Packages-------------------------
-import random, pyperclip
-
 def enter():
     print("Enter the length of your password.")
     passLen = int(input())
