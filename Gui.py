@@ -1,11 +1,11 @@
 from tkinter import *
+from tkinter import messagebox
 from setup import Setup
 import pyperclip
 
 
 root = Tk()
 root.title("Password Generator")
-
 
 
 length_label = Label(root, text="Enter the length of the Password")
@@ -28,24 +28,30 @@ password_feild.grid(row=4, column=0)
 
 # This function gets all the password from the Values it gets from the GUI
 
+
+
 def get_pass():
     password_feild.delete(0, END)
     if(length_feild.get() == ''):
-        data = (3,3,2)          # This is to make a default password, this must be changed
+        messagebox.showerror("No value Entered", "Please Fill the Entry Feilds")       # This is to make a default password, this must be changed
     else:
-        tem_len = int(length_feild.get())
-        tem_dig = int(digit_feild.get())
-        tem_spe = int(special_feild.get())
-        data = ((tem_len-(tem_dig+tem_spe), tem_dig, tem_spe))      # Doing the calculation and porcessing
-    length_feild.delete(0, END)
-    digit_feild.delete(0, END)
-    special_feild.delete(0, END)
-    generate = Setup(data)          # This is from the Class Setup which is imported and an instance is created
-    pass_word = generate.get_password()     # Calling the method
-    password_feild.insert(0, pass_word)
-    pyperclip.copy(pass_word)           # This is for copying the password directly into the clipboard
-    copied_status = Label(root, text="The password is copied to the clipboard", bg="yellow", fg="black")
-    copied_status.grid(row=5)
+        try:
+            tem_len = int(length_feild.get())
+            tem_spe = int(special_feild.get())
+            tem_dig = int(digit_feild.get())
+        except ValueError as e:
+            messagebox.showerror("Input Error","Please enter an Number")
+        else:
+            data = ((tem_len-(tem_dig+tem_spe), tem_dig, tem_spe))      # Doing the calculation and porcessing
+            length_feild.delete(0, END)
+            digit_feild.delete(0, END)
+            special_feild.delete(0, END)
+            generate = Setup(data)          # This is from the Class Setup which is imported and an instance is created
+            pass_word = generate.get_password()     # Calling the method
+            password_feild.insert(0, pass_word)
+            pyperclip.copy(pass_word)           # This is for copying the password directly into the clipboard
+            copied_status = Label(root, text="The password is copied to the clipboard", bg="yellow", fg="black")
+            copied_status.grid(row=5)
 
 
 
